@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 720px;
+  padding: 24px;
+}
+
+section {
+  margin-top: 24px;
+}
+
+h2 {
+  margin-bottom: 4px;
+}
+
+.triggers {
+  display: flex;
+  gap: 8px;
+}
+
+.triggers button,
+.triggers a {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+
+.count {
+  color: #888;
+  font-size: 0.85em;
+}
+
+.popup {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+}
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform: translate(-50%, -50%);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 20%);
+}
