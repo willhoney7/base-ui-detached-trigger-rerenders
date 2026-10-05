@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Popover } from '@base-ui/react/popover';
 import { PreviewCard } from '@base-ui/react/preview-card';
+import { Tooltip } from '@base-ui/react/tooltip';
 import { Dialog } from '@base-ui/react/dialog';
 import { Menu } from '@base-ui/react/menu';
 
@@ -43,6 +44,9 @@ const popoverCounter = createRenderCounter();
 
 const previewCardHandle = PreviewCard.createHandle();
 const previewCardCounter = createRenderCounter();
+
+const tooltipHandle = Tooltip.createHandle();
+const tooltipCounter = createRenderCounter();
 
 const dialogHandle = Dialog.createHandle();
 const dialogCounter = createRenderCounter();
@@ -113,6 +117,34 @@ export function App() {
             </PreviewCard.Positioner>
           </PreviewCard.Portal>
         </PreviewCard.Root>
+      </section>
+
+      <section>
+        <h2>Tooltip</h2>
+        <p>
+          Hover Trigger 1, then move the pointer away. Fixed in{' '}
+          <a href="https://github.com/mui/base-ui/pull/5893">mui/base-ui#5893</a>.
+        </p>
+        <div className="triggers">
+          {triggerIndexes.map((index) => (
+            <Tooltip.Trigger
+              key={index}
+              handle={tooltipHandle}
+              delay={0}
+              closeDelay={0}
+              render={tooltipCounter.button(index)}
+            >
+              {`Trigger ${index + 1}`}
+            </Tooltip.Trigger>
+          ))}
+        </div>
+        <Tooltip.Root handle={tooltipHandle}>
+          <Tooltip.Portal>
+            <Tooltip.Positioner sideOffset={8}>
+              <Tooltip.Popup className="popup">Tooltip content</Tooltip.Popup>
+            </Tooltip.Positioner>
+          </Tooltip.Portal>
+        </Tooltip.Root>
       </section>
 
       <section>
